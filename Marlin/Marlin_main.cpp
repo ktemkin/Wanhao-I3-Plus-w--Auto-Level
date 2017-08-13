@@ -497,12 +497,12 @@ void setup()
   #ifdef DIGIPOT_I2C
     digipot_i2c_init();
   #endif
-	//ÓïÑÔÑ¡Ôñ
-	//¼ì²éÊÇÖÐÓ¢ÎÄ£¬½çÃæÌø×ª
+	//ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¢ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
 	if(acceleration>1000)
-		lcd_vs_App_Page(0x01);//ÖÐÎÄ
+		lcd_vs_App_Page(0x01);//ï¿½ï¿½ï¿½ï¿½
 	else
-		lcd_vs_App_Page(0x59);//Ó¢ÎÄ
+		lcd_vs_App_Page(0x59);//Ó¢ï¿½ï¿½
 }
 
 unsigned long oldtime1=0;
@@ -514,13 +514,13 @@ void loop()
 	lcd_vs_temp_data();
 	oldtime=millis();
 	}*/
-	//¿ª»ú¶¯»­¹ýºó£¬¼ì²éÊÇÖÐÓ¢ÎÄ£¬½çÃæÌø×ª
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¢ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
 /*	if(millis()-oldtime1==4000)
 	{
 		if(acceleration>1000)
-			lcd_vs_App_Page(0x45);//ÖÐÎÄ
+			lcd_vs_App_Page(0x45);//ï¿½ï¿½ï¿½ï¿½
 		else
-			lcd_vs_App_Page(0x58);//Ó¢ÎÄ
+			lcd_vs_App_Page(0x58);//Ó¢ï¿½ï¿½
 	}*/
 
   if(buflen < (BUFSIZE-1))
@@ -2919,6 +2919,11 @@ void process_commands()
       #endif
     }
     break;
+    case 851:
+    {
+        if(code_seen('Z')) zprobe_zoffset = code_value();
+        break;
+    }
     case 999: // M999: Restart after being stopped
       Stopped = false;
       lcd_reset_alert_level();

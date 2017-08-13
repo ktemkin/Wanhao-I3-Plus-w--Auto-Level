@@ -158,6 +158,12 @@ void Config_PrintSettings()
     SERIAL_ECHOPAIR(" Z" ,endstop_adj[2] );
     SERIAL_ECHOLN("");
 #endif
+    SERIAL_ECHO_START;
+    SERIAL_ECHOLNPGM("Z-probe offset from extruder (mm):");
+    SERIAL_ECHO_START;
+    SERIAL_ECHOPAIR("  M851 Z", zprobe_zoffset );
+    SERIAL_ECHOLN("");
+
 #ifdef PIDTEMP
     SERIAL_ECHO_START;
     SERIAL_ECHOLNPGM("PID settings:");
